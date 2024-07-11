@@ -11,7 +11,6 @@ void main() {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                // make it deep purple shades
                 Color(0xFF311B92),
                 Color(0xFF512DA8),
                 Color(0xFF673AB7),
