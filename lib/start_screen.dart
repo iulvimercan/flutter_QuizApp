@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/colors.dart';
+import 'package:quiz_app/quiz.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+  const StartScreen(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,7 @@ class StartScreen extends StatelessWidget {
               ],
             ),
             child: ElevatedButton.icon(
-              onPressed: ( ){},
+              onPressed: startQuiz,
               style: ButtonStyle(
                 minimumSize: WidgetStateProperty.all(const Size(15, 50)),
                 textStyle: WidgetStateProperty.all(const TextStyle(fontSize: 18)),
