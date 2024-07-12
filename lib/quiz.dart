@@ -22,12 +22,7 @@ class _QuizState extends State<Quiz> {
     });
   }
 
-  void exitQuiz() {
-    for (var question in questions) {
-      question.userAnswer = null;
-    }
-    setState(() => activeScreen = 'start_screen');
-  }
+  void exitQuiz() => setState(() => activeScreen = 'start_screen');
 
   @override
   Widget build(BuildContext context) {

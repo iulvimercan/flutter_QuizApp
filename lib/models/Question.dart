@@ -7,4 +7,9 @@ class Question {
   final String correctAnswer;
   final String flagUrl;
   String? userAnswer;
+
+  void reset() {
+    answers.shuffle();
+    userAnswer = null;
+  }
 }

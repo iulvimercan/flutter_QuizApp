@@ -32,6 +32,12 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    questions.forEach((question) => question.reset());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Center(
         child: Padding(
