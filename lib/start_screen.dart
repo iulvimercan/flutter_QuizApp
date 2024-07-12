@@ -35,14 +35,19 @@ class StartScreen extends StatelessWidget {
                 ),
               ],
             ),
-            child: ElevatedButton(
+            child: ElevatedButton.icon(
               onPressed: ( ){},
               style: ButtonStyle(
                 minimumSize: WidgetStateProperty.all(const Size(15, 50)),
                 textStyle: WidgetStateProperty.all(const TextStyle(fontSize: 18)),
                 backgroundColor: WidgetStateProperty.all(AppColors.white),
+                padding: WidgetStateProperty.all(const EdgeInsets.symmetric(horizontal: 20)),
               ),
-              child: const Text(
+              icon: const Icon(
+                  Icons.arrow_forward
+              ),
+              iconAlignment: IconAlignment.end,
+              label: const Text(
                 'Start Quiz',
                 style: TextStyle(
                   color: AppColors.darkPurple,
