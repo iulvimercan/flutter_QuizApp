@@ -24,6 +24,14 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       }
     });
   }
+  void previousQuestion() {
+    setState(() {
+      if(questions.isNotEmpty) {
+        questionIndex--;
+        currentQuestion = questions.elementAt(questionIndex);
+      }
+    });
+  }
 
   void saveAnswer(String answer) {
     setState(() {
@@ -45,14 +53,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           child: Column(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  IconButton(
-                    onPressed: (){},
-                    icon: const Icon(Icons.arrow_back),
-                    iconSize: 30,
-                    color: AppColors.white,
-                  ),
                   IconButton(
                     onPressed: widget.exitQuiz,
                     icon: const Icon(Icons.close_outlined),
@@ -62,18 +64,13 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 ]
               ),
               const Spacer(),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: AppColors.white, width: 2),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  currentQuestion.flagUrl,
+                  height: 100,
+                  fit: BoxFit.fill,
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                      currentQuestion.flagUrl,
-                      height: 100
-                  ),
-                )
               ),
               const SizedBox(height: 52),
               Text(
@@ -87,6 +84,36 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               const SizedBox(height: 64),
               ...currentQuestion.answers.map((answer) => AnswerButton(answer, currentQuestion.userAnswer==answer, saveAnswer)),
               const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  IconButton(
+                    onPressed: questionIndex == 0 ? null : previousQuestion,
+                    icon: const Icon(Icons.arrow_back),
+                    iconSize: 30,
+                    color: AppColors.white,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.blueAccent,
+                        minimumSize: const Size(84, 50),
+                        elevation: 10,
+                        shadowColor: Colors.black54,
+                      )
+                  ),
+                  const SizedBox(width: 16),
+                  IconButton(
+                    onPressed: nextQuestion,
+                    icon: const Icon(Icons.arrow_forward),
+                    iconSize: 30,
+                    color: AppColors.white,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.blueAccent,
+                      minimumSize: const Size(84, 50),
+                      elevation: 10,
+                      shadowColor: Colors.black54,
+                    ),
+                  ),
+                ]
+              )
             ],
           ),
         )
