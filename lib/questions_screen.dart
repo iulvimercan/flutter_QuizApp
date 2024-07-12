@@ -60,7 +60,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                     icon: const Icon(Icons.close_outlined),
                     iconSize: 30,
                     color: AppColors.white,
-                  )
+                    tooltip: 'Exit',
+                  ),
                 ]
               ),
               const Spacer(),
@@ -97,7 +98,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         minimumSize: const Size(84, 50),
                         elevation: 10,
                         shadowColor: Colors.black54,
-                      )
+                      ),
+                    tooltip: 'Previous',
                   ),
                   const SizedBox(width: 16),
                   IconButton(
@@ -111,6 +113,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                       elevation: 10,
                       shadowColor: Colors.black54,
                     ),
+                    tooltip: 'Next',
                   ),
                 ]
               )
