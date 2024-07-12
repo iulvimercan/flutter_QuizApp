@@ -56,6 +56,20 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 ]
               ),
               const Spacer(),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: AppColors.white, width: 2),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                      currentQuestion.flagUrl,
+                      height: 100
+                  ),
+                )
+              ),
+              const SizedBox(height: 52),
               Text(
                 currentQuestion.question,
                 style: const  TextStyle(
@@ -64,7 +78,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 54),
+              const SizedBox(height: 64),
               ...currentQuestion.answers.map((answer) => AnswerButton(answer, currentQuestion.userAnswer==answer, saveAnswer)),
               const Spacer(),
             ],
