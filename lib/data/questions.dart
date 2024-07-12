@@ -1,4 +1,4 @@
-import 'package:quiz_app/models/question.dart';
+import 'package:quiz_app/models/Question.dart';
 
 final List<Question> questions = [
   Question(
@@ -22,3 +22,4 @@ final List<Question> questions = [
     answers: ['Washington, DC', 'London', 'Paris', 'Dublin']
   ),
 ];
+
