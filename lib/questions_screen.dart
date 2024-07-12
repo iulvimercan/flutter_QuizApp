@@ -14,28 +14,32 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Column(
-          children: [
-            const SizedBox(height: 42),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: (){},
-                  icon: const Icon(Icons.arrow_back),
-                  iconSize: 30,
-                  color: AppColors.white,
-                ),
-                IconButton(
-                  onPressed: widget.exitQuiz,
-                  icon: const Icon(Icons.close_outlined),
-                  iconSize: 30,
-                  color: AppColors.white,
-                )
-              ]
-            ),
-            const Text('QuestionsScreen'),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 42),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    onPressed: (){},
+                    icon: const Icon(Icons.arrow_back),
+                    iconSize: 30,
+                    color: AppColors.white,
+                  ),
+                  IconButton(
+                    onPressed: widget.exitQuiz,
+                    icon: const Icon(Icons.close_outlined),
+                    iconSize: 30,
+                    color: AppColors.white,
+                  )
+                ]
+              ),
+              const Spacer(),
+              const Text('QuestionsScreen'),
+              const Spacer(),
+            ],
+          ),
         )
     );
   }
