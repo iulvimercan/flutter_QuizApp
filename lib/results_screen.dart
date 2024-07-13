@@ -16,23 +16,32 @@ class ResultsScreen extends StatelessWidget {
     final correctAnswerCount = questions.where((q) => q.isCorrect()).length;
 
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          const Spacer(),
-          Text(
-            'You answered $correctAnswerCount out of $totalQuestionCount questions correctly!',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.lato(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              color: Colors.white
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const Spacer(),
+            Icon(
+              correctAnswerCount >= totalQuestionCount / 2
+                  ? Icons.sentiment_very_satisfied
+                  : Icons.sentiment_very_dissatisfied,
+              size: 100,
+              color: AppColors.blueAccent.withOpacity(0.8),
             ),
-          ),
-          const Spacer(),
-          const QuestionsSummary(),
-          const Spacer(),
-          ElevatedButton.icon(
+            SizedBox(height: 10),
+            Text(
+              'You answered $correctAnswerCount out of $totalQuestionCount questions correctly!',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.lato(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.white),
+            ),
+            const Spacer(),
+            const QuestionsSummary(),
+            const Spacer(),
+            ElevatedButton.icon(
               onPressed: exitQuiz,
               icon: const Icon(Icons.home, color: AppColors.darkPurple),
               label: const Text(
@@ -42,10 +51,14 @@ class ResultsScreen extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-          ),
-
-        ],
-      )
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(130, 50),
+                elevation: 2,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
