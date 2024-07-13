@@ -29,9 +29,9 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidget = (activeScreen == 'start_screen')? StartScreen(startQuiz)
+    final screenWidget = (activeScreen == 'start_screen')? StartScreen(startQuiz, submitQuiz) //todo ULVI - delete submitQuiz
         : (activeScreen == 'questions_screen')? QuestionsScreen(exitQuiz, submitQuiz)
-        : const ResultsScreen();
+        : ResultsScreen(exitQuiz);
 
     return MaterialApp(
       home: Scaffold(

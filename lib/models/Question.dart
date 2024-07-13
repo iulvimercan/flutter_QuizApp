@@ -12,4 +12,6 @@ class Question {
     answers.shuffle();
     userAnswer = null;
   }
+
+  bool isCorrect() => userAnswer == correctAnswer;
 }

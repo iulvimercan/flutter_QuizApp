@@ -17,7 +17,7 @@ class AnswerButton extends StatelessWidget {
         onPressed: () => saveAnswer(answer),
         style: ElevatedButton.styleFrom(
           backgroundColor: isSelected ? AppColors.blue : AppColors.white,
-          minimumSize: const Size(210, 50),
+          minimumSize: const Size(260, 50),
           elevation: 2,
         ),
         child: Text(

@@ -4,9 +4,10 @@ import 'package:quiz_app/colors.dart';
 import 'package:quiz_app/quiz.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen(this.startQuiz, {super.key});
+  const StartScreen(this.startQuiz, this.submitQuiz, {super.key});
 
   final void Function() startQuiz;
+  final void Function() submitQuiz;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class StartScreen extends StatelessWidget {
             color: AppColors.white,
           ),
           const SizedBox(height: 64),
-          const Text(
+          Text(
             'Learn Flutter the fun way!',
             style: GoogleFonts.lato(
               color: Colors.white,
@@ -43,23 +44,40 @@ class StartScreen extends StatelessWidget {
               onPressed: startQuiz,
               style: ButtonStyle(
                 minimumSize: WidgetStateProperty.all(const Size(15, 50)),
-                textStyle: WidgetStateProperty.all(const TextStyle(fontSize: 18)),
+                textStyle:
+                    WidgetStateProperty.all(const TextStyle(fontSize: 18)),
                 backgroundColor: WidgetStateProperty.all(AppColors.white),
-                padding: WidgetStateProperty.all(const EdgeInsets.symmetric(horizontal: 20)),
+                padding: WidgetStateProperty.all(
+                    const EdgeInsets.symmetric(horizontal: 20)),
               ),
-              icon: const Icon(
-                  Icons.arrow_forward
-              ),
+              icon: const Icon(Icons.arrow_forward),
               iconAlignment: IconAlignment.end,
               label: const Text(
                 'Start Quiz',
                 style: TextStyle(
-                  color: AppColors.darkPurple,
-                  fontWeight: FontWeight.w400
-              ),
+                    color: AppColors.darkPurple, fontWeight: FontWeight.w400),
               ),
             ),
           ),
+          //todo ULVI - delete
+          const SizedBox(height: 20),
+          ElevatedButton.icon(
+            onPressed: submitQuiz,
+            style: ButtonStyle(
+              minimumSize: WidgetStateProperty.all(const Size(15, 50)),
+              textStyle: WidgetStateProperty.all(const TextStyle(fontSize: 18)),
+              backgroundColor: WidgetStateProperty.all(AppColors.white),
+              padding: WidgetStateProperty.all(
+                  const EdgeInsets.symmetric(horizontal: 20)),
+            ),
+            icon: const Icon(Icons.arrow_forward),
+            iconAlignment: IconAlignment.end,
+            label: const Text(
+              'Results Screen',
+              style: TextStyle(
+                  color: AppColors.darkPurple, fontWeight: FontWeight.w400),
+            ),
+          )
         ],
       ),
     );
