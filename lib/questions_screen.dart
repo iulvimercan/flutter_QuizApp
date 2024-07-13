@@ -65,13 +65,24 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 ]
               ),
               const Spacer(),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  currentQuestion.flagUrl,
-                  height: 100,
-                  fit: BoxFit.fill,
+              DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: AppColors.white,
+                      spreadRadius: 2.5,
+                      blurStyle: BlurStyle.inner,
+                    ),
+                  ],
                 ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                      currentQuestion.flagUrl,
+                      width: 164,
+                  ),
+                )
               ),
               const SizedBox(height: 52),
               Text(
