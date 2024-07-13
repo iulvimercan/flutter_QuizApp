@@ -4,10 +4,9 @@ import 'package:quiz_app/colors.dart';
 import 'package:quiz_app/quiz.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen(this.startQuiz, this.submitQuiz, {super.key});
+  const StartScreen(this.startQuiz, {super.key});
 
   final void Function() startQuiz;
-  final void Function() submitQuiz;
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +15,24 @@ class StartScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Image.asset(
-            'assets/images/quiz-logo.png',
+            'assets/images/globe2.png',
             width: 300,
-            color: AppColors.white,
           ),
           const SizedBox(height: 64),
           Text(
-            'Learn Flutter the fun way!',
+            'Countries & Capitals',
             style: GoogleFonts.lato(
+              color: AppColors.warning,
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
+            )
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'Test your knowledge!',
+            style: GoogleFonts.pacifico(
               color: Colors.white,
-              fontSize: 24,
+              fontSize: 22
             ),
           ),
           const SizedBox(height: 240),
@@ -59,25 +66,6 @@ class StartScreen extends StatelessWidget {
               ),
             ),
           ),
-          //todo ULVI - delete
-          const SizedBox(height: 20),
-          ElevatedButton.icon(
-            onPressed: submitQuiz,
-            style: ButtonStyle(
-              minimumSize: WidgetStateProperty.all(const Size(15, 50)),
-              textStyle: WidgetStateProperty.all(const TextStyle(fontSize: 18)),
-              backgroundColor: WidgetStateProperty.all(AppColors.white),
-              padding: WidgetStateProperty.all(
-                  const EdgeInsets.symmetric(horizontal: 20)),
-            ),
-            icon: const Icon(Icons.arrow_forward),
-            iconAlignment: IconAlignment.end,
-            label: const Text(
-              'Results Screen',
-              style: TextStyle(
-                  color: AppColors.darkPurple, fontWeight: FontWeight.w400),
-            ),
-          )
         ],
       ),
     );

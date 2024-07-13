@@ -29,7 +29,7 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidget = (activeScreen == 'start_screen')? StartScreen(startQuiz, submitQuiz) //todo ULVI - delete submitQuiz
+    final screenWidget = (activeScreen == 'start_screen')? StartScreen(startQuiz)
         : (activeScreen == 'questions_screen')? QuestionsScreen(exitQuiz, submitQuiz)
         : ResultsScreen(exitQuiz);
 
