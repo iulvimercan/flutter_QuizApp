@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/question_no_container.dart';
 
-import 'colors.dart';
+import 'data/colors.dart';
 import 'data/questions.dart';
 
 class QuestionsSummary extends StatelessWidget {

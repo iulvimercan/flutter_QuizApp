@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/colors.dart';
+import 'package:quiz_app/data/colors.dart';
 
 class AnswerButton extends StatelessWidget {
   const AnswerButton (this.answer, this.isSelected, this.saveAnswer, {super.key});

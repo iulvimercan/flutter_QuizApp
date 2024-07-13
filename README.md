@@ -1,6 +1,16 @@
-# quiz_app
+# Countries and Capitals (Quiz App)
 
-Basic quiz application with Flutter.
+. In this application, the 
+concept of "lifting state up" can be practiced, which is a common pattern in Flutter.
+Also, some other practices in this application can be listed as follows:
+- Using `StatefulWidget` and `StatelessWidget`
+- Using `Column`, `Row`, `Container`, `Padding`, `Center`, `Expanded`, `SizedBox`
+- A stateful widget's lifecycle methods (`initState`, `dispose`)
+- Mutating values in memory
+- Making the content scrollable with `SingleChildScrollView`
+and more...
+
+![quiz_app.gif](quiz_app.gif)
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
+import 'data/colors.dart';
 
 class NavigationButton extends StatelessWidget {
   const NavigationButton(this.action, this.icon, this.tooltip, {super.key, this.color = AppColors.blueAccent});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'colors.dart';
+import 'data/colors.dart';
 
 class QuestionNoContainer extends StatelessWidget {
   const QuestionNoContainer(this.questionNo, this.isCorrect, {super.key});
