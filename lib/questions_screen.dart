@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/answer_button.dart';
+import 'package:quiz_app/navigation_button.dart';
 import 'package:quiz_app/colors.dart';
+
 import 'package:quiz_app/data/questions.dart';
+
 import 'models/Question.dart';
+
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen(this.exitQuiz, {super.key});
@@ -99,33 +103,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  IconButton(
-                    onPressed: questionIndex == 0 ? null : previousQuestion,
-                    icon: const Icon(Icons.arrow_back),
-                    iconSize: 30,
-                    color: AppColors.white,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.blueAccent,
-                        minimumSize: const Size(84, 50),
-                        elevation: 10,
-                        shadowColor: Colors.black54,
-                      ),
-                    tooltip: 'Previous',
-                  ),
+                  NavigationButton(questionIndex == 0 ? null : previousQuestion, Icons.arrow_back, 'Previous'),
                   const SizedBox(width: 16),
-                  IconButton(
-                    onPressed: nextQuestion,
-                    icon: const Icon(Icons.arrow_forward),
-                    iconSize: 30,
-                    color: AppColors.white,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.blueAccent,
-                      minimumSize: const Size(84, 50),
-                      elevation: 10,
-                      shadowColor: Colors.black54,
-                    ),
-                    tooltip: 'Next',
-                  ),
+                  NavigationButton(nextQuestion, Icons.arrow_forward, 'Next'),
                 ]
               )
             ],
