@@ -9,8 +9,9 @@ import 'models/Question.dart';
 
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen(this.exitQuiz, {super.key});
+  const QuestionsScreen(this.exitQuiz, this.submitQuiz, {super.key});
   final void Function() exitQuiz;
+  final void Function() submitQuiz;
 
   @override
   State createState() => _QuestionsScreenState();
@@ -20,9 +21,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   int questionIndex = 0;
   Question currentQuestion = questions.elementAt(0);
 
+  bool isLastQuestion() => questions.length - 1 == questionIndex;
+
   void nextQuestion() {
     setState(() {
-      if(questions.length - 1 != questionIndex) {
+      if(!isLastQuestion()) {
         questionIndex++;
         currentQuestion = questions.elementAt(questionIndex);
       }
@@ -105,7 +108,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 children: [
                   NavigationButton(questionIndex == 0 ? null : previousQuestion, Icons.arrow_back, 'Previous'),
                   const SizedBox(width: 16),
-                  NavigationButton(nextQuestion, Icons.arrow_forward, 'Next'),
+                  isLastQuestion()
+                    ? NavigationButton(currentQuestion.userAnswer == null ? null : widget.submitQuiz, Icons.done, 'Submit', color: AppColors.green)
+                    : NavigationButton(currentQuestion.userAnswer == null ? null : nextQuestion, Icons.arrow_forward, 'Next'),
                 ]
               )
             ],
